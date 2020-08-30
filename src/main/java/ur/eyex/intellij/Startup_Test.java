@@ -13,7 +13,7 @@ import java.awt.*;
 import java.net.SocketOption;
 import java.util.HashMap;
 
-public class Startup extends AnAction {
+class Startup_Test extends AnAction {
 
     @Override
     public void actionPerformed(@NotNull AnActionEvent e) {

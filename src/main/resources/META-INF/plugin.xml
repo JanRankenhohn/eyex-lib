@@ -18,9 +18,9 @@
         <!-- Add your actions here -->
         <group id="PluginExample.HelloAction" text="MyIdeaDemo" description="about my idea">
             <add-to-group group-id="MainMenu" anchor="last" />
-            <action class="ur.eyex.intellij.Startup" id="PluginExample.Actions.HelloAction" text="Say Hello!"/>
+            <action class="ur.eyex.intellij.Startup_Test" id="PluginExample.Actions.HelloAction" text="Say Hello!"/>
             <action id="EditorBasics.EditorIllustrationAction"
-                    class="ur.eyex.intellij.AoiSelector"
+                    class="ur.eyex.intellij.AoiSelector_Test"
                     text="Editor Replace Text"
                     description="Replaces selected text with 'Replacement'.">
                 <add-to-group group-id="EditorPopupMenu" anchor="first"/>

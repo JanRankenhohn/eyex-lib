@@ -12,7 +12,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.geom.Point2D;
 
-public class AoiSelector extends AnAction {
+public class AoiSelector_Test extends AnAction {
     @Override
     public void update(@NotNull final AnActionEvent e) {
         // Get required data keys

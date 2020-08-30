@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact name="eyex-intellij.main:jar2">
+    <output-path>$PROJECT_DIR$/out/artifacts/eyex_intellij_main_jar2</output-path>
+    <root id="root">
+      <element id="archive" name="eyex-intellij.main.jar">
+        <element id="module-output" name="eyex-intellij.main" />
+      </element>
+      <element id="library" level="project" name="Gradle: com.googlecode.json-simple:json-simple:1.1.1" />
+      <element id="library" level="project" name="Gradle: junit:junit:4.10" />
+      <element id="library" level="project" name="Gradle: org.hamcrest:hamcrest-core:1.1" />
+      <element id="library" level="project" name="Gradle: org.json:json:20180813" />
+    </root>
+  </artifact>
+</component>
