@@ -1,0 +1,30 @@
+<idea-plugin>
+    <id>ur.eyex.intellij.eyex-intellij</id>
+    <name>EyeX IntelliJ ApiHost</name>
+    <vendor email="jan.rankenhohn@stud.uni-regensburg.de">Uinversität Regensburg</vendor>
+
+    <description><![CDATA[
+    Implements the connection to the EyeX Api Server<br>
+    ]]></description>
+
+    <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+    </extensions>
+
+    <actions>
+        <!-- Add your actions here -->
+        <group id="PluginExample.HelloAction" text="MyIdeaDemo" description="about my idea">
+            <add-to-group group-id="MainMenu" anchor="last" />
+            <action class="ur.eyex.intellij.Startup" id="PluginExample.Actions.HelloAction" text="Say Hello!"/>
+            <action id="EditorBasics.EditorIllustrationAction"
+                    class="ur.eyex.intellij.AoiSelector"
+                    text="Editor Replace Text"
+                    description="Replaces selected text with 'Replacement'.">
+                <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+            </action>
+        </group>
+    </actions>
+</idea-plugin>
