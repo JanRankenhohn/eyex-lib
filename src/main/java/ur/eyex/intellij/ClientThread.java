@@ -55,8 +55,8 @@ class ClientThread extends Thread {
                 new BufferedReader(
                         new InputStreamReader(
                                 socket.getInputStream()));
-        char[] buffer = new char[625];
-        int charCount = bufferedReader.read(buffer, 0, 625);
+        char[] buffer = new char[700];
+        int charCount = bufferedReader.read(buffer, 0, 700);
         String input = new String(buffer, 0, charCount);
         return input;
     }

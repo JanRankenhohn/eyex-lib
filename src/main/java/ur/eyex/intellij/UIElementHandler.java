@@ -40,55 +40,57 @@ class UIElementHandler {
             // Main Menu Bar
             if(name.contains("CustomHeaderMenuBar")) {
                 compList.put("MainMenuBar", comp);
-                container = (Container) comp;
-                for (Component innerComp : container.getComponents()) {
-                    String innerCompName = innerComp.getClass().getSimpleName();
-                    if (innerCompName.contains("ActionMenu")) {
-                        innerCompName = "MenuBar_" + getField(innerComp, "text");
-                    } else {
-                        innerCompName = "MenuBar_" + innerCompName;
-                    }
-                    compList.put(innerCompName, innerComp);
-                }
+                // Comment in for more detailed UI Components (Each Button on the MainMenuBar)
+                //container = (Container) comp;
+                //for (Component innerComp : container.getComponents()) {
+                    //String innerCompName = innerComp.getClass().getSimpleName();
+                    //if (innerCompName.contains("ActionMenu")) {
+                        //innerCompName = "MenuBar_" + getField(innerComp, "text");
+                    //} else {
+                        //innerCompName = "MenuBar_" + innerCompName;
+                    //}
+                    //compList.put(innerCompName, innerComp);
+                //}
             }
             // Toolbar
-            if(simpleName.contains("ActionToolbarImpl")) {
-                compList.put("Toolbar", comp);
-                container = (Container) comp;
-                for (Component innerComp : container.getComponents()) {
-                    String innerCompName = innerComp.getClass().getName();
-                    if (innerCompName.contains("ActionToolbarImpl")) {
-                        innerCompName = "Toolbar_" + getField(innerComp, "myAction");
-                        compList.put(innerCompName, innerComp);
-                    }
-                }
-            }
+            //if(simpleName.contains("ActionToolbarImpl")) {
+                //compList.put("Toolbar", comp);
+                // Comment in for more detailed UI Components (Each Icon on the Toolbar)
+                //container = (Container) comp;
+                //for (Component innerComp : container.getComponents()) {
+                    //String innerCompName = innerComp.getClass().getName();
+                    //if (innerCompName.contains("ActionToolbarImpl")) {
+                        //innerCompName = "Toolbar_" + getField(innerComp, "myAction");
+                        //compList.put(innerCompName, innerComp);
+                    //}
+                //}
+            //}
             //Navbar
             //if(name.contains("NavBarPanel")) {
                 //compList.put(simpleName, comp);
             //}
             // ToolWindowBar
-            if(name.contains("Stripe")) {
-                container = (Container)comp;
-                for (Component innerComp : container.getComponents()) {
-                    String innerCompName = innerComp.getClass().getName();
-                    if(innerCompName.contains("StripeButton")){
-                        innerCompName = "ToolWindowBar_" + getField(innerComp, "text");
-                        compList.put(innerCompName, innerComp);
-                    }
-                }
-            }
+            //if(name.contains("Stripe")) {
+                //container = (Container)comp;
+                //for (Component innerComp : container.getComponents()) {
+                    //String innerCompName = innerComp.getClass().getName();
+                    //if(innerCompName.contains("StripeButton")){
+                        //innerCompName = "ToolWindowBar_" + getField(innerComp, "text");
+                        //compList.put(innerCompName, innerComp);
+                    //}
+                //}
+            //}
             // EditorTabs
-            if(name.contains("JBTabsImpl")) {
-                container = (Container)comp;
-                for (Component innerComp : container.getComponents()) {
-                    String innerCompName = innerComp.getClass().getName();
-                    if(innerCompName.contains("EditorTabs")){
-                        innerCompName = "EditorTabs_" + getField(innerComp, "myInfo");
-                        compList.put(innerCompName, innerComp);
-                    }
-                }
-            }
+            //if(name.contains("JBTabsImpl")) {
+                //container = (Container)comp;
+                //for (Component innerComp : container.getComponents()) {
+                    //String innerCompName = innerComp.getClass().getName();
+                    //if(innerCompName.contains("EditorTabs")){
+                        //innerCompName = "EditorTabs_" + getField(innerComp, "myInfo");
+                        //compList.put(innerCompName, innerComp);
+                    //}
+                //}
+            //}
             //FileEditor
             if(name.contains("EditorComponentImpl")) {
                 compList.put("FileEditor", comp);

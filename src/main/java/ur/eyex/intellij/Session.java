@@ -1,17 +1,20 @@
 package ur.eyex.intellij;
 
 import com.intellij.openapi.project.Project;
+import com.jetbrains.rd.util.reactive.KeyValuePair;
 
 import java.awt.*;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 class Session {
-    public static boolean sessionStarted;
-    public static Project project;
-    public static Constants.GazeDataTypes dataType;
-    public static HashMap<String, Component> componentList;
-    public static Component editorComponent;
-    public static int fixationCount = 0;
+    static boolean sessionStarted;
+    static Project project;
+    static Constants.GazeDataTypes dataType;
+    static HashMap<String, Component> componentList;
+    static Component editorComponent;
+    static int fixationCount = 0;
 
     public static void start(Project p, Constants.GazeDataTypes dt){
         project = p;
@@ -30,6 +33,10 @@ class Session {
         GazeDataHandler.codeElements.clear();
         sessionStarted = false;
         fixationCount = 0;
+    }
+
+    public int getFixationCount(){
+        return fixationCount;
     }
 
     private static void subscribe(Constants.GazeDataTypes dataType){

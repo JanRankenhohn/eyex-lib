@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
-  <artifact name="eyex-intellij.main:jar2">
-    <output-path>$PROJECT_DIR$/out/artifacts/eyex_intellij_main_jar2</output-path>
+  <artifact name="eyex-intellij.main:jar3">
+    <output-path>$PROJECT_DIR$/out/artifacts/eyex_intellij_main_jar3</output-path>
     <root id="root">
       <element id="archive" name="eyex-intellij.main.jar">
         <element id="module-output" name="eyex-intellij.main" />

@@ -17,7 +17,7 @@ class Startup_Test extends AnAction {
 
     @Override
     public void actionPerformed(@NotNull AnActionEvent e) {
-        ApiHost apiHost = new ApiHost(Constants.Apis.TOBIICORE);
+        ApiHost apiHost = new ApiHost(Constants.Apis.TOBIIPRO);
 
         Project p = e.getDataContext().getData(PlatformDataKeys.PROJECT);
 
@@ -59,7 +59,6 @@ class Startup_Test extends AnAction {
             @Override
             public void uiElementFixated(Component c) {
                 Component fixatedUIElement = c;
-                uiCounter.count(fixatedUIElement);
             }
         });
 
