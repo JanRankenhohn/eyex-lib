@@ -41,7 +41,7 @@ public class CodeElement {
         this.y = editorY + p3.y;
 
         this.width = editorX + p4.x - this.x;
-        this.height = editorY + lineHeight - this.y;
+        this.height = lineHeight;
 
         text = editor.getDocument().getText(new TextRange(offsetStart, offsetEnd));
 

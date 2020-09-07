@@ -17,7 +17,7 @@ class Startup_Test extends AnAction {
 
     @Override
     public void actionPerformed(@NotNull AnActionEvent e) {
-        ApiHost apiHost = new ApiHost(Constants.Apis.TOBIIPRO);
+        ApiHost apiHost = new ApiHost(Constants.Apis.TOBIICORE);
 
         Project p = e.getDataContext().getData(PlatformDataKeys.PROJECT);
 
@@ -29,7 +29,7 @@ class Startup_Test extends AnAction {
 
         // Add Code Elements and editor for Gaze Check
         final Editor editor = e.getRequiredData(CommonDataKeys.EDITOR);
-        CodeElement codeElement = new CodeElement(1,7, editor);
+        CodeElement codeElement = new CodeElement(41,49, editor);
         GazeDataHandler.addCodeElement(codeElement);
 
         // Handle Gaze Point Data Stream
