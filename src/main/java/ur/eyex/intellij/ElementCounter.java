@@ -1,6 +1,5 @@
 package ur.eyex.intellij;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class ElementCounter {

@@ -32,4 +32,13 @@ public class GazeDataHandler {
         codeElements.add(codeElement);
     }
 
+    public static void clearAllListeners(){
+        gazePointDataListeners.clear();
+        fixationDataListeners.clear();
+        uiFixationListeners.clear();
+        codeFixationListeners.clear();
+        codeFixationCountListeners.clear();
+        uiFixationCountListeners.clear();
+    }
+
 }

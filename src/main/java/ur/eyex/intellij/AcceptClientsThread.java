@@ -2,6 +2,11 @@ package ur.eyex.intellij;
 
 import java.io.IOException;
 
+
+/**
+ * Thread serves as server and accepts new Clients
+ * For each client a new ClientThread is started
+ */
 class AcceptClientsThread extends Thread {
 
     public void run() {

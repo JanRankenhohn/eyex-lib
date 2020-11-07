@@ -17,6 +17,8 @@ class GazeDataInputHandler{
 
     private static int previousFixationForCode = 0;
     private static int previousFixationForUI = 0;
+    private static CodeElement previousCodeElement;
+    private static Component previousUIComponent;
 
     public static void handleGazePointInput(JSONObject json) {
         try {
@@ -50,6 +52,8 @@ class GazeDataInputHandler{
             FixationData.Y_Median = json.getDouble("Y_Median");
             FixationData.Timestamp = json.getLong("Timestamp");
 
+            long unixTime = System.currentTimeMillis();
+
             switch (FixationData.Type){
                 case "FIXATIONS":
                     System.out.print("FIXATION " + FixationData.EventType + " at " + FixationData.X_Median + " - " + FixationData.Y_Median );
@@ -57,6 +61,10 @@ class GazeDataInputHandler{
                     // Count Fixations and Saccades
                     if(FixationData.EventType.equals("BEGIN")){
                         Session.fixationCount += 1;
+                    }
+
+                    if(FixationData.EventType.equals("END")){
+                        int o = 1;
                     }
 
                     // Counter is ID
@@ -75,19 +83,27 @@ class GazeDataInputHandler{
                         for (UIFixationListener l : GazeDataHandler.uiFixationListeners) {
                             l.uiElementFixated(compEntry.getKey());
                         }
-                        if(compEntry.getValue()){
+                        if(compEntry.getValue() && previousUIComponent != compEntry.getKey()){
+                            previousUIComponent = compEntry.getKey();
                             for(UIFixationCountListener l : GazeDataHandler.uiFixationCountListeners) {
-                                l.uiElementFixationCounted(compEntry.getKey());
+                                l.uiElementFixationCounted(compEntry.getKey(), unixTime);
                             }
                         }
                     }
+                    if(FixationData.EventType.equals("END") && previousCodeElement != null){
+                        for(CodeFixationCountListener l : GazeDataHandler.codeFixationCountListeners) {
+                            l.codeElementFixationCounted(previousCodeElement, FixationDataEventType.End, unixTime);
+                            previousCodeElement = null;
+                        }
+                    }
                     if(codeElement != null){
+                        previousCodeElement = codeElement.getKey();
                         for(CodeFixationListener l : GazeDataHandler.codeFixationListeners) {
                             l.codeElementFixated(codeElement.getKey());
                         }
-                        if(codeElement.getValue()){
-                            for(CodeFixationCountListener l : GazeDataHandler.codeFixationCountListeners) {
-                                l.codeElementFixationCounted(codeElement.getKey());
+                        if(codeElement.getValue()) {
+                            for (CodeFixationCountListener l : GazeDataHandler.codeFixationCountListeners) {
+                                l.codeElementFixationCounted(codeElement.getKey(), FixationDataEventType.Begin, unixTime);
                             }
                         }
                     }

@@ -30,6 +30,12 @@ class UIElementHandler {
         return null;
     }
 
+    /**
+     * Goes through IntelliJ UI Components and adds them to the UI-Elements that will be mapped to gaze data.
+     * Commented in: Currently only MainMenuBar, EditorComponent, ProjectView and TerminalView
+     * @param c
+     * @return
+     */
     private static HashMap<String, Component> filterUIComponents(final Container c) {
         Component[] comps = c.getComponents();
         HashMap<String,Component> compList = new HashMap<>();

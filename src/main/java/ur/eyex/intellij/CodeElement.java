@@ -10,9 +10,14 @@ import com.intellij.openapi.util.TextRange;
 import java.awt.*;
 import java.awt.geom.Point2D;
 
+/**
+ * Represents a Code Element in the Code Editor
+ */
 public class CodeElement {
     private int offsetStart;
     private int offsetEnd;
+    private int lines;
+    private String id;
     private String text;
     private int x;
     private int y;
@@ -20,7 +25,17 @@ public class CodeElement {
     private int width;
     private Editor editor;
 
-    public CodeElement(int offsetStart, int offsetEnd, Editor editor){
+    /**
+     * Creating a CodeElement
+     * @param offsetStart Start coordinate of the element
+     * @param offsetEnd End coordinate of the element
+     * @param lines Lines the CodeElement comprises
+     * @param id Use a description name as id as it gets logged
+     * @param editor TextEditor of the IDE
+     */
+    public CodeElement(int offsetStart, int offsetEnd, int lines, String id, Editor editor){
+        this.id = id;
+        this.lines = lines;
         this.offsetStart = offsetStart;
         this.offsetEnd = offsetEnd;
         this.editor = editor;
@@ -28,6 +43,9 @@ public class CodeElement {
             updateScreenCoordinates();
     }
 
+    /**
+     * Updates the screen coordinates of the CodeElement
+     */
     void updateScreenCoordinates(){
         int lineHeight = editor.getLineHeight();
         Component editorComponent = Session.editorComponent;
@@ -41,18 +59,9 @@ public class CodeElement {
         this.y = editorY + p3.y;
 
         this.width = editorX + p4.x - this.x;
-        this.height = lineHeight;
+        this.height = lineHeight * lines;
 
         text = editor.getDocument().getText(new TextRange(offsetStart, offsetEnd));
-
-        //Graphics g = editorComponent.getGraphics();
-        //g.fillRect(1, 1, 30, 14);
-        //g.setColor(java.awt.Color.black);
-        //g.drawRect(x,y,width,height);
-
-        //Utils.createWindow(width, height, x, y, text);
-        //Utils.createWindow(editorComponent.getWidth(), editorComponent.getHeight(), editorComponent.getLocationOnScreen().x - 5, editorComponent.getLocationOnScreen().y, "editor");
-
     }
 
     public int getX(){
@@ -61,6 +70,10 @@ public class CodeElement {
 
     public int getY(){
         return y;
+    }
+
+    public String getId(){
+        return id;
     }
 
     public int getWidth(){

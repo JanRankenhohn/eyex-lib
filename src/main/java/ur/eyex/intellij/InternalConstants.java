@@ -8,7 +8,9 @@ abstract class InternalConstants {
     public static final String ServerIPAdress = "127.0.0.1";
 
     public static final String ServerSubscribePath = "api/subscribe";
+    public static final String ServerUnsubscribePath = "api/unsubscribe";
     public static final String ServerLoadApiPath = "api/loadapi";
+    public static final String ServerUnloadApiPath = "api/unloadapi";
 
     public static final int fileEditorOffset = -5;
 }

@@ -14,6 +14,11 @@ class ClientThread extends Thread {
     private boolean blockGazePointInput = false;
     private boolean blockFixationInput = false;
 
+    /**
+     * Receives Client Data (Gaze Points / Fixations)
+     * Sends data to Gaze Data Handler with data type
+     * @param socket
+     */
     public ClientThread(Socket socket){
         this.socket = socket;
     }
@@ -50,6 +55,12 @@ class ClientThread extends Thread {
         }
     }
 
+    /**
+     * Helper method to read client input
+     * @param socket
+     * @return
+     * @throws IOException
+     */
     private String readInput(java.net.Socket socket) throws IOException {
         BufferedReader bufferedReader =
                 new BufferedReader(
@@ -61,6 +72,11 @@ class ClientThread extends Thread {
         return input;
     }
 
+    /**
+     * Helper method to serialize json data
+     * @param text
+     * @return
+     */
     private JSONObject serializeJson(String text){
         try {
             JSONObject jsonObject = new JSONObject(text);
